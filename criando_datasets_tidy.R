@@ -9,9 +9,9 @@ library(openxlsx)
 #dataset longer para ocorrencias de homicidio doloso
 crime_longer_doloso <- readr::read_csv("inputs_brutos/monthly_occurrences_policiaSP.csv") %>%
   dplyr::select(-Total, -Regiao) %>% 
-  dplyr::filter(Cidade == "S√£o Paulo",
+  dplyr::filter(Cidade == "S„o Paulo",
                 Ano <= 2018,
-                Natureza == "HOMIC√çDIO DOLOSO (2)") %>% 
+                Natureza == "HOMICÕDIO DOLOSO (2)") %>% 
   tidyr::pivot_longer(cols = -c(Natureza, Ano, Cidade),
                       names_to = "mes",
                       values_to = "hom_doloso") %>% 
@@ -23,9 +23,9 @@ crime_longer_doloso <- readr::read_csv("inputs_brutos/monthly_occurrences_polici
 #dataset longer para ocorrencias de latrocinio
 crime_longer_latrocinio <- readr::read_csv("inputs_brutos/monthly_occurrences_policiaSP.csv") %>%
   dplyr::select(-Total, -Regiao) %>% 
-  dplyr::filter(Cidade == "S√£o Paulo",
+  dplyr::filter(Cidade == "S„o Paulo",
                 Ano <= 2018,
-                Natureza == "LATROC√çNIO") %>% 
+                Natureza == "LATROCÕNIO") %>% 
   tidyr::pivot_longer(cols = -c(Natureza, Ano, Cidade),
                       names_to = "mes",
                       values_to = "latrocinio") %>% 
@@ -50,7 +50,7 @@ saveRDS(df_letais, "inputs_tidy/crimes_letais_SP.rds")
 #dataset wide com s√©ries de produtividade policial
 police_prcvty <- readr::read_csv("inputs_brutos/PoliceProductivity_policiaSP.csv") %>% 
   dplyr::select(-Total, -Regiao) %>% 
-  dplyr::filter(Cidade == "S√£o Paulo",
+  dplyr::filter(Cidade == "S„o Paulo",
                 Ano <= 2018) %>% 
   tidyr::pivot_longer(cols = -c(Natureza, Ano, Cidade),
                       names_to = "mes",
