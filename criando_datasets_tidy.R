@@ -41,6 +41,7 @@ df_letais <- crime_longer_doloso %>%
   dplyr::select(data_tidy, crimes_letais_SP)
 
 saveRDS(df_letais, "inputs_tidy/crimes_letais_SP.rds")
+write.xlsx(df_letais, "inputs_tidy/crimes_letais_SP.xlsx")
 #########
 
 #2) DATASET WIDE TIDY DE PRODUTIVIDADE POLICIAL =========
@@ -61,6 +62,7 @@ police_prcvty <- readr::read_csv("inputs_brutos/PoliceProductivity_policiaSP.csv
   dplyr::select(data_tidy, dplyr::everything()) %>% dplyr::arrange(data_tidy)
 
 saveRDS(police_prcvty, "inputs_tidy/police_productivity.rds")
+write.xlsx(police_prcvty, "inputs_tidy/police_productivity.xlsx")
 #########
 
 #3) DATASETS ATIVIDADE ECONÔMICA: DESEMPREGO E RENDIMENTO MÉDIO REAL DOS OCUPADOS=====
@@ -81,4 +83,5 @@ economia <- readxl::read_excel("inputs_brutos/rendimento_real_médio_dos_ocupados
   dplyr::rename(tx_desemp = "Taxa de desemprego")
 
 saveRDS(economia, "inputs_tidy/renda_desemprego_SP.rds")
+write.xlsx(economia, "inputs_tidy/renda_desemprego_SP.xlsx")
 ########
